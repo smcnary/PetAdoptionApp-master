@@ -1,0 +1,185 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{C4865B70-7225-4B38-B099-73F3267B0F35}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>PetApp.Data</RootNamespace>
+    <AssemblyName>PetApp.Data</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.1.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.0.1\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.2.0.1\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ApplicationDbContext.cs" />
+    <Compile Include="Migrations\201405250544200_initial.cs" />
+    <Compile Include="Migrations\201405250544200_initial.Designer.cs">
+      <DependentUpon>201405250544200_initial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201405250545572_second.cs" />
+    <Compile Include="Migrations\201405250545572_second.Designer.cs">
+      <DependentUpon>201405250545572_second.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201405251654467_PetClassUpdate.cs" />
+    <Compile Include="Migrations\201405251654467_PetClassUpdate.Designer.cs">
+      <DependentUpon>201405251654467_PetClassUpdate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201405251718512_addedPetType.cs" />
+    <Compile Include="Migrations\201405251718512_addedPetType.Designer.cs">
+      <DependentUpon>201405251718512_addedPetType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201405251841276_addedPhotoProp.cs" />
+    <Compile Include="Migrations\201405251841276_addedPhotoProp.Designer.cs">
+      <DependentUpon>201405251841276_addedPhotoProp.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201405251948223_volunteerTableUpdate.cs" />
+    <Compile Include="Migrations\201405251948223_volunteerTableUpdate.Designer.cs">
+      <DependentUpon>201405251948223_volunteerTableUpdate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201405252117342_addedRequestedStart.cs" />
+    <Compile Include="Migrations\201405252117342_addedRequestedStart.Designer.cs">
+      <DependentUpon>201405252117342_addedRequestedStart.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201405260029385_statusVol.cs" />
+    <Compile Include="Migrations\201405260029385_statusVol.Designer.cs">
+      <DependentUpon>201405260029385_statusVol.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201405260052297_detailsVolunteer.cs" />
+    <Compile Include="Migrations\201405260052297_detailsVolunteer.Designer.cs">
+      <DependentUpon>201405260052297_detailsVolunteer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201405260055299_detailToDB.cs" />
+    <Compile Include="Migrations\201405260055299_detailToDB.Designer.cs">
+      <DependentUpon>201405260055299_detailToDB.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201405260112587_scheduleTimeSpan.cs" />
+    <Compile Include="Migrations\201405260112587_scheduleTimeSpan.Designer.cs">
+      <DependentUpon>201405260112587_scheduleTimeSpan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201405260325287_detailSchamaChange.cs" />
+    <Compile Include="Migrations\201405260325287_detailSchamaChange.Designer.cs">
+      <DependentUpon>201405260325287_detailSchamaChange.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201405260336112_changeDateTimetoString.cs" />
+    <Compile Include="Migrations\201405260336112_changeDateTimetoString.Designer.cs">
+      <DependentUpon>201405260336112_changeDateTimetoString.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201405260347442_addedId.cs" />
+    <Compile Include="Migrations\201405260347442_addedId.Designer.cs">
+      <DependentUpon>201405260347442_addedId.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201405260358581_fixedDateTime.cs" />
+    <Compile Include="Migrations\201405260358581_fixedDateTime.Designer.cs">
+      <DependentUpon>201405260358581_fixedDateTime.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Seeder.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\PetApp.DataModels\PetApp.DataModels.csproj">
+      <Project>{264a9910-93a3-4695-8764-5982edff1741}</Project>
+      <Name>PetApp.DataModels</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201405250544200_initial.resx">
+      <DependentUpon>201405250544200_initial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201405250545572_second.resx">
+      <DependentUpon>201405250545572_second.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201405251654467_PetClassUpdate.resx">
+      <DependentUpon>201405251654467_PetClassUpdate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201405251718512_addedPetType.resx">
+      <DependentUpon>201405251718512_addedPetType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201405251841276_addedPhotoProp.resx">
+      <DependentUpon>201405251841276_addedPhotoProp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201405251948223_volunteerTableUpdate.resx">
+      <DependentUpon>201405251948223_volunteerTableUpdate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201405252117342_addedRequestedStart.resx">
+      <DependentUpon>201405252117342_addedRequestedStart.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201405260029385_statusVol.resx">
+      <DependentUpon>201405260029385_statusVol.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201405260052297_detailsVolunteer.resx">
+      <DependentUpon>201405260052297_detailsVolunteer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201405260055299_detailToDB.resx">
+      <DependentUpon>201405260055299_detailToDB.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201405260112587_scheduleTimeSpan.resx">
+      <DependentUpon>201405260112587_scheduleTimeSpan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201405260325287_detailSchamaChange.resx">
+      <DependentUpon>201405260325287_detailSchamaChange.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201405260336112_changeDateTimetoString.resx">
+      <DependentUpon>201405260336112_changeDateTimetoString.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201405260347442_addedId.resx">
+      <DependentUpon>201405260347442_addedId.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201405260358581_fixedDateTime.resx">
+      <DependentUpon>201405260358581_fixedDateTime.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

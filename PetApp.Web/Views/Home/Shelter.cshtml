@@ -1,0 +1,22 @@
+﻿@model PetApp.DataModels.Shelter
+
+@{
+    ViewBag.Title = @Model.Name;
+}
+
+<header class="ShelterHeader">
+    <h2>@Model.Name <small>@Model.Location</small></h2>
+
+</header>
+<div class="details">
+    <div class="col-md-4 affix">
+        <img src="@Model.Photo" />
+
+    </div>
+    @foreach (var pet in Model.Pets)
+    {
+        <div class="col-md-8 pull-right pets">
+            <a href="/Pet/@pet.Name"><img src="@pet.Photo" /></a>
+        </div>
+    }
+</div>

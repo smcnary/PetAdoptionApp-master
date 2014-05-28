@@ -1,0 +1,24 @@
+﻿@model PetApp.DataModels.Pet
+
+@{
+    ViewBag.Title = "AddPet";
+}
+<div class="admin">
+
+
+    <h2>Add Pet</h2>
+
+    <form method="post">
+        @Html.HiddenFor(model => model.ShelterId)
+        <input type="text" name="Name" placeholder="name" />
+        <input type="text" name="Photo" placeholder="photo url" />
+        <select name="Type">
+            <option value="1">Dog</option>
+            <option value="2">Cat</option>
+            <option value="3">Lizard</option>
+            <option value="4">Hamster</option>
+        </select>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+
+</div>

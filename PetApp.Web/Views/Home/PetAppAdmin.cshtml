@@ -1,0 +1,131 @@
+﻿@model PetApp.Web.Models.PetAppVM
+
+@{
+    ViewBag.Title = "PetAppAdmin";
+}
+<div class="admin">
+
+    <hr />
+    <h1>Pets</h1>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Type</th>
+                <th>Shelter</th>
+                <th>Photo</th>
+                <th>Update</th>
+                <th>Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var pet in Model.Pets)
+            {
+                <tr class="@pet.Adopted.ToString()">
+                    <td>@pet.Id</td>
+                    <td>@pet.Name</td>
+                    <td>@pet.Type</td>
+                    <td>@pet.Shelter.Name</td>
+                    <td>@pet.Photo</td>
+                    <td><a href="/Admin/UpdatePet/@pet.Id" class="btn btn-warning">Update</a></td>
+                    <td>
+                        <form method="post" action="/Admin/RemovePet/@pet.Id">
+                            <button type="submit" class="btn btn-danger">Delete</button>
+                        </form>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+
+    <h1>Volunteers</h1>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Type</th>
+                <th>Associated Pet</th>
+                <th>Approve Request</th>
+                <th>Update</th>
+                <th>Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var person in Model.Volunteers)
+            {
+                <tr>
+                    <td>@person.Id</td>
+                    <td>@person.FirstName</td>
+                    <td>@person.LastName</td>
+                    <td>@person.Type</td>
+                    <td>@person.Pet.Name</td>
+                    <td>
+                        @switch (person.Status)
+                        {
+                            case PetApp.DataModels.Status.Pending:
+                                <a href="/Admin/Approve/@person.Id" class="btn btn-primary">Review</a>
+                                break;
+                            case PetApp.DataModels.Status.Approved:
+                            <button class="btn btn-success" disabled>Approved</button>
+                                break;
+                            case PetApp.DataModels.Status.Rejected:
+                            <button class="btn btn-default" disabled>Rejected</button>
+                                break;
+                            default:
+                                break;
+                        }
+
+                    </td>
+                    <td><a href="/Admin/UpdateVolunteer/@person.Id" class="btn btn-warning">Update</a></td>
+                    <td>
+                        <form method="post" action="/Admin/RemoveVolunteer/@person.Id">
+                            <button type="submit" class="btn btn-danger">Delete</button>
+                        </form>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    <h1>Shelters</h1>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Pet Count</th>
+                <th>Add A Pet</th>
+                <th>Location</th>
+                <th>Photo</th>
+                <th>Update</th>
+                <th>Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var shelter in Model.Shelters)
+            {
+                <tr>
+                    <td>@shelter.Id</td>
+                    <td>@shelter.Name</td>
+                    <td>@shelter.Pets.Count</td>
+                    <td><a href="/Admin/AddPet/@shelter.Id" class="btn btn-primary">Add a Pet</a></td>
+                    <td>@shelter.Location</td>
+                    <td>@shelter.Photo</td>
+                    <td><a href="/Admin/UpdateShelter/@shelter.Id" class="btn btn-warning">Update</a></td>
+                    <td>
+                        <form method="post" action="/Admin/RemoveShelter/@shelter.Id">
+                            <button type="submit" class="btn btn-danger">Delete</button>
+                        </form>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    <a href="/Admin/AddShelter" class="btn btn-primary">Add a new Shelter</a>
+
+</div>

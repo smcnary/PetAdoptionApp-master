@@ -1,0 +1,16 @@
+﻿@model PetApp.DataModels.Pet
+
+@{
+    ViewBag.Title = "UpdatePet";
+}
+<div class="admin">
+    <h2>Update Pet</h2>
+
+    <form method="post">
+        @Html.EditorFor(model => model.Name)
+        @Html.EditorFor(model => model.Photo)
+        @Html.EditorFor(model => model.Type)
+        <button type="submit">Save Changes</button>
+    </form>
+</div>
+

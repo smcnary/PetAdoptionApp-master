@@ -1,0 +1,31 @@
+﻿@model PetApp.Web.Models.WalkTheDogVM
+
+@{
+    ViewBag.Title = "Walk";
+}
+<section class="walk">
+
+
+    <h2>Walk @Model.dogName</h2>
+
+    <form method="post">
+        @Html.HiddenFor(model => model.dogName)
+
+        @Html.EditorFor(model => model.Volunteer.FirstName)
+        @Html.EditorFor(model => model.Volunteer.LastName)
+        @*@Html.EditorFor(model => model.Volunteer.Detail.StartDate, new { @type = "date" })*@
+        <input type="date" name="Date" />
+        <input type="time" name="Time" />
+        <button type="submit" class="btn btn-primary">Request</button>
+    </form>
+    <div id='loading' style='display:none'>loading...</div>
+    <div id='calendar'></div>
+
+</section>
+
+@section scripts{
+    <script src="~/Scripts/myCalendarJS.js"></script>
+    <script src="~/Scripts/fullcalendar.js"></script>
+    <script src="~/Scripts/fullcalendar.min.js"></script>
+    <script src="~/Scripts/gcal.js"></script>
+}

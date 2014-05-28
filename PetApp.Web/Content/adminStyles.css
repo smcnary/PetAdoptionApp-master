@@ -1,0 +1,20 @@
+﻿nav h1 {
+    color: black;
+    font-family: Candara, Calibri, Segoe, "Segoe UI", Optima, Arial, sans-serif;
+    font-weight: normal;
+}
+
+.content {
+    padding-top:45px
+}
+
+.navigation {
+    width: 100%;
+    background-color: black;
+    color: white;
+    padding-top: 50px;
+}
+
+.navigation ul li{
+    display: inline;
+}

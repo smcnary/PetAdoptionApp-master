@@ -1,0 +1,141 @@
+﻿@model PetApp.Web.Models.HomeVM
+
+@{
+    ViewBag.Title = "Home Page";
+}
+<header>
+    <!-- top row-->
+    <div class="collage col-md-2">
+        <img src="http://static.parade.condenast.com/wp-content/uploads/2014/02/labrador-america-top-dog-breed-ftr.jpg" />
+    </div>
+    <div class="collage col-md-2">
+        <img src="http://upload.wikimedia.org/wikipedia/commons/2/22/Turkish_Van_Cat.jpg" />
+    </div>
+    <div class="collage col-md-2">
+        <img src="http://i.huffpost.com/gen/964776/thumbs/o-CATS-KILL-BILLIONS-facebook.jpg" />
+    </div>
+    <div class="collage col-md-2">
+        <img src="http://dogbreedsinfo.net/wp-content/uploads/2014/05/Harrier.jpg" />
+    </div>
+    <div class="collage col-md-2">
+        <img src="http://ontariospca.ca/blog/wp-content/uploads/2013/09/Hamster.jpg" />
+    </div>
+    <div class="collage col-md-2">
+        <img src="http://upload.wikimedia.org/wikipedia/commons/1/18/Bartagame_fcm.jpg" />
+    </div>
+    <div class="collage col-md-2">
+        <img src="http://www.thepetcollective.tv/wp-content/uploads/2014/01/yellow-ribbon-dog-puppy.jpg" />
+    </div>
+    <div class="collage col-md-2">
+        <img src="http://gaby.fachrul.com/img/blackgolddogfood/what-is-best-dog-food/top-10-dog-breeds-boxer-dogs2304-x-3072-1622-kb-jpeg-x.jpg" />
+    </div>
+    <div class="collage col-md-2">
+        <img src="http://upload.wikimedia.org/wikipedia/commons/6/61/Common_Collared_Lizard.jpg" />
+    </div>
+    <div class="collage col-md-2">
+        <img src="http://melinabeachturtlehatchery.files.wordpress.com/2010/07/turtle4.jpg" />
+    </div>
+    <div class="collage col-md-2">
+        <img src="http://pad1.whstatic.com/images/thumb/3/37/Pet-a-Dog-Step-1.jpg/670px-Pet-a-Dog-Step-1.jpg" />
+    </div>
+    <div class="collage col-md-2">
+        <img src="http://www.petinfoclub.com/Images/Syrian%20hamster%20-%20wild%20backdrop%20shutterstock_58612030.jpg" />
+    </div>
+    <div class="collage col-md-2">
+        <img src="http://www.petiquettedog.com/wp-content/uploads/2010/04/sadpug.jpg" />
+    </div>
+    <div class="collage col-md-2">
+        <img src="https://blogs.libraries.iub.edu/et2/files/2013/06/turtle3.jpg" />
+    </div>
+    <div class="greeting1 col-md-8">
+        <p>Pet Adoption and Walking App</p>
+    </div>
+    <div class="collage col-md-2">
+        <img src="http://upload.wikimedia.org/wikipedia/commons/0/06/Large_Scaled_Forest_Lizard_.jpg" />
+    </div>
+    <div class="collage col-md-2">
+        <img src="http://i.telegraph.co.uk/multimedia/archive/01014/hamster-460_1014550c.jpg" />
+    </div>
+    <div class="greeting2 col-md-8">
+        <p>
+            Bacon ipsum dolor sit amet brisket swine pancetta, capicola tri-tip chicken pork turducken flank meatball jerky beef ribs landjaeger. Swine hamburger ball tip, rump shankle chicken cow tenderloin ham hock tri-tip beef shoulder tongue pork loin. Swine pork loin brisket tenderloin, chicken shankle leberkas. Shoulder venison rump capicola leberkas turkey.
+        </p>
+    </div>
+
+
+</header>
+
+<div id="map" class="col-md-4">
+
+</div>
+
+<div class="shelters col-md-8">
+    <div class="controls col-md-12">
+        
+        @if (Model.Page > 1)
+        {
+            <a class="btn btn-default pull-left" href="/Home/Index?page=@(Model.Page - 2) ">Previous Page</a>
+        }
+
+        @if (Model.Shelters.Count == 3)
+        {
+            <a class="btn btn-default pull-right" href="/Home/Index?page=@Model.Page">Next Page</a>
+        }
+    </div>
+
+    @foreach (var shelter in Model.Shelters)
+    {
+        <div class="col-md-4 photos"><a href="/Home/Shelter/@shelter.Id"><img src="@shelter.Photo" /></a></div>
+    }
+    @foreach (var shelter in Model.Shelters)
+    {
+        <div class="col-md-4">
+            <h5>@shelter.Name</h5>
+        </div>
+    }
+
+
+</div>
+    <h1>Our Pets</h1>
+    <form method="post">
+        <h5>Pet Type</h5>
+        <select name="filter">
+            <option value="5">All</option>
+            <option value="1">Dogs</option>
+            <option value="2">Cats</option>
+            <option value="3">Lizards</option>
+            <option value="4">Hamsters</option>
+        </select>
+        <button type="submit">Filter</button>
+    </form><br />
+
+
+
+    @foreach (var pet in Model.Pets)
+    {
+        if (pet.Name != Model.FeaturedPet.Name)
+        {
+            <div class="collage col-md-2">
+                <a href="/Pet/@pet.Name"><img src="@pet.Photo" /></a>
+            </div>
+        }
+
+    }
+
+@section Scripts{
+    <script src="~/Scripts/_googleMap.js"></script>
+}
+@*
+    <hr />
+
+
+
+
+
+    @foreach (var shelter in Model.Shelters)
+    {
+        @shelter.Name<br />
+    }
+
+
+*@
